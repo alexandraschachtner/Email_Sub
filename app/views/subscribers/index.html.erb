@@ -1,0 +1,19 @@
+<h1>Email Caputre aka Subscribe/Unsubscibe options</h1>
+<p>Ideal this will be a simple email list.  The create will be the addition of an email.
+The read ...... ugh. i dunno yet.
+The Update will be a link option to chancge how often your email recieves a message.
+Delete will be the option of unsubscribing.
+</p>
+      <h5>Sign Up For Great Deals in your Email</h5>
+
+      <%= form_for @subscribe do |f|%>
+          <%= f.email_field :email, placeholder: "email" %></br>
+          <%= radio_button_tag(:sub, 'yes') %>
+          <%= label_tag(:sub_y, "Give me Great Deals!") %>
+        </br>
+          <%= radio_button_tag(:sub, 'no ') %>
+          <%= label_tag(:sub_n, "Unsubscribe Me!") %>
+        </br>
+         <%= f.submit %>
+
+      <% end %>

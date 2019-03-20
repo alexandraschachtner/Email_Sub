@@ -1,5 +1,5 @@
 class Subscriber < ApplicationRecord
  validates :email, presence: true
- validates :sub, inclusion: ['yes', 'no']
+ # validates :sub, inclusion: ['Yes', 'No']
 
 end

@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   # config/routes.rb
   resources :subscribers
   root 'subscribers#index'
-  
+
+  get 'unsub/index'
 end

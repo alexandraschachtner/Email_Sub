@@ -8,18 +8,23 @@ Delete will be the option of unsubscribing.
 
       <%= form_for @subscriber do |f|%>
           <%= f.email_field :email, placeholder: "email" %></br>
-          <!-- <%= select_tag :sub, options_for_select([['Yes', 'Yes'],['No', 'No']]), prompt: "Please Choose an option" %> -->
           <%= f.submit %>
-
       <% end %>
 
+      <%= link_to "Looking to unSubscribe? Click Here.", unsub_index_path %>
 
 
+<!-- Saved erb code for drop down and radio button.  Untimately I would like to replace the link to the Unsub Manager view
+to either of these form codes.  Hopefully letting the find_or_initialize_by only have to fuction once, and creating
+less steps for the user -->
 
-<!-- Save for radio button option
-          <%= radio_button_tag(:sub, 'yes') %>
-          <%= label_tag(:sub_y, "Give me Great Deals!") %>
-        </br>
-          <%= radio_button_tag(:sub, 'no ') %>
-          <%= label_tag(:sub_n, "Unsubscribe Me!") %>
-        </br> -->
+      <!--
+      <%= select_tag :sub, options_for_select([['Yes', 'Yes'],['No', 'No']]), prompt: "Please Choose an option" %> -->
+
+      <!-- Save for radio button option
+              <%= radio_button_tag(:sub, 'yes') %>
+              <%= label_tag(:sub_y, "Give me Great Deals!") %>
+            </br>
+              <%= radio_button_tag(:sub, 'no ') %>
+              <%= label_tag(:sub_n, "Unsubscribe Me!") %>
+            </br> -->

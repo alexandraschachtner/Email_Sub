@@ -2,7 +2,7 @@
 <p> This will pull you information, update your mailing options, or delete your email from the database</p>
       <h5>Sign Up For Great Deals in your Email</h5>
 
-      <%= form_for do |f|%>
+      <%= form_for @subscriber do |f|%>
           <%= f.email_field :email, placeholder: "email" %></br>
           <%= f.submit %>
       <% end %>

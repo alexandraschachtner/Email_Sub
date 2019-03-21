@@ -4,7 +4,7 @@ class SubscribersController < ApplicationController
   end
 
  	def create
-		@subscriber = Subscriber.find_or_initialize_by(email: subscriber_params[:email])
+		@subscriber = Subscriber.find(email: subscriber_params[:email])
 
 		if @subscriber.new_record?
       # if subscriber_params[:sub] == 'Yes'

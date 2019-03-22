@@ -3,17 +3,17 @@ class SubscribersController < ApplicationController
     @subscriber = Subscriber.new
   end
 
- 	def manage
+ 	def create
       if subscriber_params[:sub] == 'Yes'
-       return redirect_to sub
-     elseif subscriber_params[:sub] == 'No'
-        return redirect_to unsub
+        @subscriber.sub
+     # elseif subscriber_params[:sub] == 'No'
+     #    return redirect_to unsub
      else
-			 return redirect_to root_path, notice: "Oops! Something is missing!"
+		     redirect_to root_path, notice: "Oops! Something is missing!"
    end
   end
 
-  def sub
+  def self.sub
     @subscriber = Subscriber.find_or_initialize_by(email: subscriber_params[:email])
   	 if @subscriber.new_record?
       @subscriber.save!
@@ -23,14 +23,14 @@ class SubscribersController < ApplicationController
       end
    end
 
-   def unsub
-     @subscriber = Subscriber.find_or_initialize_by(email: subscriber_params[:email])
-   	 if @subscriber.new_record?
-        redirect_to root_path, notice: "It doesn't look like you are here. Did you wanna sign up?"
-       else
-         return redirect_to root_path, notice: "This should take you to "
-       end
-   end
+   # def unsub
+   #   @subscriber = Subscriber.find_or_initialize_by(email: subscriber_params[:email])
+   # 	 if @subscriber.new_record?
+   #      redirect_to root_path, notice: "It doesn't look like you are here. Did you wanna sign up"
+   #     else
+   #       return redirect_to root_path, notice: "This should take you to "
+   #     end
+   # end
 
 private
   def subscriber_params

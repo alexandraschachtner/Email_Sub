@@ -3,6 +3,7 @@ class CreateSubscribers < ActiveRecord::Migration[5.2]
     create_table :subscribers do |t|
       t.string :email
       t.string :sub
+      t.string :lite
 
       t.timestamps
     end

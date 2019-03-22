@@ -8,7 +8,7 @@ Delete will be the option of unsubscribing.
 
       <%= form_for @subscriber do |f|%>
           <%= f.email_field :email, placeholder: "email" %></br>
-          <!-- <%= select_tag :sub, options_for_select([['Yes', 'Yes'],['No', 'No']]), prompt: "Please Choose an option" %> -->
+          <%= f.select :sub, options_for_select([['Yes', 'Yes'],['No', 'No']]), prompt: "Please Choose an option" %>
           <%= f.submit %>
 
       <% end %>

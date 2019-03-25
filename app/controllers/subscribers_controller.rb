@@ -4,9 +4,15 @@ class SubscribersController < ApplicationController
   end
 
  	def create
-      if subscriber_params[:sub] == 'Yes'
-  		  return redirect_to root_path, notice: "that worked"
-     elsif subscriber_params[:sub] == 'No'
+     @subscriber = Subscriber.find_or_initialize_by(email: subscriber_params[:email])
+       if @subsccriber.new_record?
+        if subscriber_params[:sub] == 'Yes'
+           @subscribe.save!
+  		      return redirect_to root_path, notice: "that worked"
+        else
+           return redirect_to root_path, notice: "Looks like you are already here."
+        end
+      elsif subscriber_params[:sub] == 'No'
         return redirect_to root_path, notice: "NOPE"
 		  else
          return redirect_to root_path, notice: "Oops! Something is missing!"
